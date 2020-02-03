@@ -1,0 +1,27 @@
+<!doctype html>
+<title>{% block title %}{% endblock %} - Flaskr</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<div class="card">
+  <ul class="nav">
+    <li class="nav-item col-sm">
+      <a class="nav-link active" href="{{url_for('index')}}">Home</a>
+    </li>
+    <li class="nav-item col-sm">
+      <a class="nav-link" href="{{url_for('sorting_page')}}">Sorting algorithms</a>
+    </li>
+    <li class="nav-item col-sm">
+      <a class="nav-link" href="{{url_for('pathfinding')}}">Pathfinding algorithms</a>
+    </li>
+  </ul>
+</div>
+
+<section class="content">
+  <header>
+    {% block header %}{% endblock %}
+  </header>
+  {% for message in get_flashed_messages() %}
+    <div class="flash">{{ message }}</div>
+  {% endfor %}
+  {% block content %}{% endblock %}
+</section>

@@ -1,0 +1,43 @@
+{% include 'base.html' %}
+
+<div class="container m-3">
+    <form method="post">
+        <label for="algorithm">Choose your algorithm:</label>
+        <br/>
+        <select class="form-control" name="algorithm" >
+            <option value="" ></option>
+            <option value="bubble" >Bubble sort</option>
+            <option value="heap" >Heap sort</option>
+            <option value="insert" >Insertion sort</option>
+            <option value="merge" >Merge sort</option>
+            <option value="selection" >Selection sort</option>
+            <option value="heap" >Heap sort</option>
+        </select>
+        <br/>
+        <input class="btn btn-primary" type="submit" for="algorithm" value="Pesquisar"></input>
+    </form>
+
+    <div class="progress mt-3">
+        <div class="progress-bar progress-bar-striped" role="progressbar" style="width: 10%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+    </div>
+    {% if obj %}
+    <table class="table">
+        <thead class="thead">
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Algorithm</th>
+                <th scope="col">Time</th>
+                <th scope="col">Processed Time</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row">1</th>
+                <td>{{ obj['algorithm'] }}</td>
+                <td>{{ obj['processed_time'] }} s</td>
+                <td>{{ obj['sorted_result'] }}</td>
+            </tr>
+        </tbody>
+    </table>
+    {% endif %}
+</div>
